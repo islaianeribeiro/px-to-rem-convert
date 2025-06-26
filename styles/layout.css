@@ -1,0 +1,21 @@
+/* layout.css */
+.container {
+  width: 1200px;
+  padding: 40px 20px;
+  margin: 0 auto;
+}
+
+.header {
+  height: 80px;
+  padding: 10px 30px;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
