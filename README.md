@@ -27,7 +27,7 @@ Ao trabalhar com projetos que utilizam unidades fixas como `px`, converter manua
 ## 🚀 Funcionalidades
 
 - 📁 Lê todos os arquivos `.css` de uma pasta
-- 🔁 Converte todos os valores `px` para `rem`
+- 🔁 Converte valores `px` para `rem` (somente se ≥ 10px, para preservar bordas, sombras etc)
 - 🧮 Base de conversão: `1rem = 10px`
 - 💾 Sobrescreve os arquivos com o novo conteúdo
 - 📦 Adaptável para outras unidades, se necessário
@@ -54,15 +54,19 @@ Ao trabalhar com projetos que utilizam unidades fixas como `px`, converter manua
 
 ```bash
 git clone https://github.com/islaianeribeiro/px-to-rem-convert.git
+```
 
+### 2. Acesse a pasta do projeto:
+
+```bash
 cd px-to-rem-convert
 ```
 
-### 2. Instale o Node.js (se ainda não tiver)
+### 3. Instale o Node.js (se ainda não tiver)
 
 [Baixe o Node.js aqui](https://nodejs.org/)
 
-### 3. Execute o script
+### 4. Execute o script
 
 ```bash
 node convert.js
@@ -92,11 +96,26 @@ node convert.js
 }
 ```
 
+### Exemplo de classe com valores pequenos (não convertido)
+
+```css
+.card {
+  width: 30rem;
+  padding: 2rem;
+  background-color: white;
+  border: 1px solid #000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+```
+
 ---
 
 ## ✏️ Adaptação
 
-Se quiser converter para outras unidades (`em`, `%`, `vw`, etc), basta ajustar a função `pxToRem()` dentro do arquivo `convert.js`.
+### Para adaptar:
+
+- Altere a variável `baseRem` no topo do arquivo (`1rem = Xpx`).
+- Ou modifique a função para converter para `em`, `%`, `vw` etc.
 
 ---
 

@@ -1,20 +1,22 @@
 const fs = require("fs");
 const path = require("path");
 
-// Caminho da pasta com os arquivos CSS
 const folder = "./";
+const baseRem = 10;
 
-// Função para converter px para rem com 1rem = 10px
 function pxToRem(content) {
-  return content.replace(/(\d+(\.\d+)?)px/g, (_, number) => {
-    const value = parseFloat(number) / 10;
-    return `${
-      value % 1 === 0 ? value : value.toFixed(2).replace(/\.?0+$/, "")
-    }rem`;
+  return content.replace(/(\d+(\.\d+)?)px/g, (match, number) => {
+    const pxValue = parseFloat(number);
+
+    if (pxValue < baseRem) return match;
+
+    const remValue = pxValue / baseRem;
+    const formatted =
+      remValue % 1 === 0 ? remValue : remValue.toFixed(2).replace(/\.?0+$/, "");
+    return `${formatted}rem`;
   });
 }
 
-// Lê todos os arquivos da pasta
 fs.readdir(folder, (err, files) => {
   if (err) {
     console.error("Erro ao ler a pasta:", err);
